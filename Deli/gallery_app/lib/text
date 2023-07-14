@@ -1,0 +1,329 @@
+// Padding(
+//                         padding: const EdgeInsets.fromLTRB(30, 100, 30, 30),
+//                         child: ListView.builder(
+//                           itemCount: content.length,
+//                           itemBuilder: (context, index) {
+//                             words = content[index].split(' ');
+//                             return GestureDetector(
+//                               onTap: () {
+//                                 if (postImages[index].isNotEmpty) {
+//                                   Navigator.push(
+//                                     context,
+//                                     MaterialPageRoute(
+//                                       builder: (context) => Detail(
+//                                         imgs: postImages[index],
+//                                         id: index,
+//                                         content: content[index],
+//                                         nameList: users,
+//                                       ),
+//                                     ),
+//                                   );
+//                                 }
+//                               },
+//                               child: Padding(
+//                                 padding: const EdgeInsets.symmetric(
+//                                     horizontal: 8, vertical: 15),
+//                                 child: Container(
+//                                   width: screenWidth * 0.5,
+//                                   decoration: BoxDecoration(
+//                                     color: Colors.white,
+//                                     borderRadius: BorderRadius.circular(15),
+//                                     boxShadow: [
+//                                       BoxShadow(
+//                                         color:
+//                                             Colors.blue[800]!.withOpacity(0.8),
+//                                         offset: const Offset(0, 2),
+//                                         blurRadius: 4,
+//                                         spreadRadius: 1,
+//                                       ),
+//                                     ],
+//                                   ),
+//                                   child: Padding(
+//                                     padding: const EdgeInsets.all(3.0),
+//                                     child: Column(
+//                                       crossAxisAlignment:
+//                                           CrossAxisAlignment.center,
+//                                       mainAxisAlignment:
+//                                           MainAxisAlignment.center,
+//                                       children: [
+//                                         Align(
+//                                           alignment: Alignment.centerLeft,
+//                                           child: Padding(
+//                                             padding: const EdgeInsets.fromLTRB(
+//                                                 30, 10, 0, 0),
+//                                             child: Row(
+//                                               mainAxisAlignment:
+//                                                   MainAxisAlignment
+//                                                       .spaceBetween,
+//                                               children: [
+//                                                 Text(users[index],
+//                                                     style: userName),
+//                                                 RemoveOrUpdate(
+//                                                   screenHeight: screenHeight,
+//                                                   removePost: removePost,
+//                                                   function1: () {
+//                                                     deletePost(index);
+//                                                   },
+//                                                   function2: () {
+//                                                     edit(index);
+//                                                   },
+//                                                 ),
+//                                               ],
+//                                             ),
+//                                           ),
+//                                         ),
+//                                         Padding(
+//                                           padding:
+//                                               const EdgeInsets.only(left: 25),
+//                                           child: Align(
+//                                             alignment: Alignment.centerLeft,
+//                                             child: Text(
+//                                               DateFormat('HH:mm | dd-MM-yyyy')
+//                                                   .format(postDate[index])
+//                                                   .toString(),
+//                                               style: postDates,
+//                                             ),
+//                                           ),
+//                                         ),
+//                                         Align(
+//                                           alignment: Alignment.centerLeft,
+//                                           child: Padding(
+//                                             padding: const EdgeInsets.symmetric(
+//                                                 horizontal: 15, vertical: 5),
+//                                             child: editable &&
+//                                                     index == editableIndex &&
+//                                                     removePost == false
+//                                                 ? PostUpdateTF(
+//                                                     contentController:
+//                                                         contentController,
+//                                                     content: content,
+//                                                     function: (String text) {
+//                                                       setState(() {
+//                                                         contentController.text =
+//                                                             text;
+//                                                       });
+//                                                     },
+//                                                     index: index)
+//                                                 : Padding(
+//                                                     padding:
+//                                                         const EdgeInsets.all(
+//                                                             10),
+//                                                     child: Text.rich(
+//                                                       TextSpan(
+//                                                         children: words
+//                                                             .map((word) => TextSpan(
+//                                                                 text: '$word ',
+//                                                                 style: word
+//                                                                         .startsWith(
+//                                                                             '#')
+//                                                                     ? hashtagsText
+//                                                                     : contentText))
+//                                                             .toList(),
+//                                                       ),
+//                                                     ),
+//                                                   ),
+//                                           ),
+//                                         ),
+//                                         Visibility(
+//                                           visible: editable &&
+//                                               editableIndex == index &&
+//                                               removePost == false,
+//                                           child: Row(
+//                                             mainAxisAlignment:
+//                                                 MainAxisAlignment.spaceEvenly,
+//                                             children: [
+//                                               UpdatePostImg(function: () {
+//                                                 updatePostImage(index);
+//                                               }),
+//                                               UpdatePost(
+//                                                   screenHeight: screenHeight,
+//                                                   function: () {
+//                                                     updatePost(index);
+//                                                   })
+//                                             ],
+//                                           ),
+//                                         ),
+//                                         if (postImages[index].isNotEmpty)
+//                                           SizedBox(
+//                                             width: screenWidth * 0.7,
+//                                             child: MasonryGridView.builder(
+//                                               physics:
+//                                                   const NeverScrollableScrollPhysics(),
+//                                               shrinkWrap: true,
+//                                               gridDelegate:
+//                                                   const SliverSimpleGridDelegateWithFixedCrossAxisCount(
+//                                                 crossAxisCount: 2,
+//                                               ),
+//                                               itemCount: 5,
+//                                               itemBuilder: (context, index1) {
+//                                                 if (postImages[index].length >
+//                                                         maxImages &&
+//                                                     index == maxImages - 1) {
+//                                                   int remainCount =
+//                                                       postImages[index].length -
+//                                                           maxImages +
+//                                                           1;
+//                                                   return Padding(
+//                                                     padding:
+//                                                         const EdgeInsets.all(2),
+//                                                     child: GestureDetector(
+//                                                       child: Stack(
+//                                                         children: [
+//                                                           ClipRRect(
+//                                                             borderRadius:
+//                                                                 BorderRadius
+//                                                                     .circular(
+//                                                                         10),
+//                                                             child: Image.file(
+//                                                               postImages[index]
+//                                                                   [index1],
+//                                                               fit: BoxFit.cover,
+//                                                             ),
+//                                                           ),
+//                                                           Positioned(
+//                                                             top: 0,
+//                                                             right: 0,
+//                                                             left: 0,
+//                                                             bottom: 0,
+//                                                             child: Container(
+//                                                               padding:
+//                                                                   const EdgeInsets
+//                                                                       .all(4),
+//                                                               decoration:
+//                                                                   BoxDecoration(
+//                                                                 color: Colors
+//                                                                     .black
+//                                                                     .withOpacity(
+//                                                                         0.6),
+//                                                                 borderRadius:
+//                                                                     BorderRadius
+//                                                                         .circular(
+//                                                                             10),
+//                                                               ),
+//                                                               child: Center(
+//                                                                 child: Text(
+//                                                                   '+$remainCount',
+//                                                                   style:
+//                                                                       const TextStyle(
+//                                                                     color: Colors
+//                                                                         .white,
+//                                                                     fontSize:
+//                                                                         30,
+//                                                                     fontWeight:
+//                                                                         FontWeight
+//                                                                             .bold,
+//                                                                   ),
+//                                                                 ),
+//                                                               ),
+//                                                             ),
+//                                                           )
+//                                                         ],
+//                                                       ),
+//                                                       onTap: () {
+//                                                         _currentIndex = index;
+//                                                         Provider.of<DataModel>(
+//                                                                 context,
+//                                                                 listen: false)
+//                                                             .sliderIndex(
+//                                                                 _currentIndex);
+//                                                         Provider.of<DataModel>(
+//                                                                 context,
+//                                                                 listen: false)
+//                                                             .sliderScreenImages(
+//                                                                 postImages[
+//                                                                     index]);
+//                                                         Navigator.push(
+//                                                             context,
+//                                                             MaterialPageRoute(
+//                                                                 builder:
+//                                                                     (context) =>
+//                                                                         const SliderScreen()));
+//                                                       },
+//                                                     ),
+//                                                   );
+//                                                 } else {
+//                                                   return Padding(
+//                                                     padding:
+//                                                         const EdgeInsets.all(2),
+//                                                     child: GestureDetector(
+//                                                       onTap: () {
+//                                                         _currentIndex = index;
+//                                                         Provider.of<DataModel>(
+//                                                                 context,
+//                                                                 listen: false)
+//                                                             .sliderIndex(
+//                                                                 _currentIndex);
+//                                                         Provider.of<DataModel>(
+//                                                                 context,
+//                                                                 listen: false)
+//                                                             .sliderScreenImages(
+//                                                                 postImages[
+//                                                                     index]);
+//                                                         Navigator.push(
+//                                                             context,
+//                                                             MaterialPageRoute(
+//                                                                 builder:
+//                                                                     (context) =>
+//                                                                         const SliderScreen()));
+//                                                       },
+//                                                       child: ClipRRect(
+//                                                         borderRadius:
+//                                                             BorderRadius
+//                                                                 .circular(10),
+//                                                         child: Image.file(
+//                                                           postImages[index]
+//                                                               [index1],
+//                                                           fit: BoxFit.cover,
+//                                                         ),
+//                                                       ),
+//                                                     ),
+//                                                   );
+//                                                 }
+//                                               },
+//                                             ),
+//                                           )
+//                                         else
+//                                           const SizedBox(),
+//                                         Padding(
+//                                           padding: const EdgeInsets.symmetric(
+//                                               vertical: 10, horizontal: 20),
+//                                           child: Row(
+//                                             mainAxisAlignment:
+//                                                 MainAxisAlignment.spaceEvenly,
+//                                             children: [
+//                                               const Icon(
+//                                                 Icons.favorite_border_outlined,
+//                                                 color: Colors.blue,
+//                                               ),
+//                                               Container(
+//                                                 width: screenWidth * 0.25,
+//                                                 decoration: const BoxDecoration(
+//                                                   border: Border.symmetric(
+//                                                     vertical: BorderSide(
+//                                                       color: Colors.blue,
+//                                                       width: 1,
+//                                                       style: BorderStyle.solid,
+//                                                     ),
+//                                                   ),
+//                                                 ),
+//                                                 child: const Icon(
+//                                                   Icons.message,
+//                                                   color: Colors.blue,
+//                                                 ),
+//                                               ),
+//                                               const Icon(
+//                                                 Icons.arrow_outward,
+//                                                 color: Colors.blue,
+//                                               ),
+//                                             ],
+//                                           ),
+//                                         ),
+//                                       ],
+//                                     ),
+//                                   ),
+//                                 ),
+//                               ),
+//                             );
+//                           },
+//                         ),
+//                       ),

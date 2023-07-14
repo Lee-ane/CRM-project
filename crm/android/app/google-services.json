@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "273739864453",
+    "project_id": "goldenpos-internship",
+    "storage_bucket": "goldenpos-internship.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:273739864453:android:1f8b90afe2c6b42fda0cec",
+        "android_client_info": {
+          "package_name": "com.example.crm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "273739864453-cvna1v9e94m1t1v2nk0v0dhcng2pjnd0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC3cCv1J8c5DiwusC7h30HCpRq0fGiUNlM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "273739864453-cvna1v9e94m1t1v2nk0v0dhcng2pjnd0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "273739864453-jim31o75a4krtoc0vmt8ktcgvac59jt8.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.projectCrm"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

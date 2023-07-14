@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1009840266224",
+    "firebase_url": "https://gallery-social-media-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "gallery-social-media",
+    "storage_bucket": "gallery-social-media.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1009840266224:android:93efac2e29bc6026365b35",
+        "android_client_info": {
+          "package_name": "com.example.gallery_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1009840266224-ao689658mp5ul61q0ten5umjkhp9qtib.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDICpS50N5-ntlAC7J8VzreyIa-DRLC3uo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1009840266224-ao689658mp5ul61q0ten5umjkhp9qtib.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1009840266224-6u45cvcu28vpe3nljd82g4bejpok3n73.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.gallery.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
